@@ -27,7 +27,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - ansible-role-lldpad
+         - giovtorres.lldpad
            when: ansible_virtualization_role == "host"
 
 License
