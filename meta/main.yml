@@ -1,0 +1,18 @@
+galaxy_info:
+  author: Giovanni Torres
+  description: Install and configures the LLDP agent daemon (lldpad).
+  license: license BSD
+  min_ansible_version: 1.6
+  platforms:
+  - name: EL
+    versions:
+    - 6
+    - 7
+  galaxy_tags:
+  - networking
+  - server
+  - network
+  - linux
+  - lldp
+  - lldpad
+dependencies: []
