@@ -10,7 +10,7 @@ Supported and tested on EL6 and EL7.
 Requirements
 ------------
 
-Useful on physical hosts to determining uplink switch/switchport connections.
+Useful on physical hosts for determining uplink switch/switchport connections.
 
 Role Variables
 --------------
