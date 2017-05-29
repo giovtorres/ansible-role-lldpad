@@ -1,2 +1,4 @@
 ---
-# defaults file for ansible-role-lldpad
+lldpad_active_interfaces: true
+lldpad_selected_interfaces: []
+#  - eth0

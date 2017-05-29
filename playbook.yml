@@ -7,5 +7,9 @@
       when: ansible_os_family == "RedHat"
 
 - hosts: all
+  vars:
+    lldpad_active_interfaces: false
+    lldpad_selected_interfaces:
+      - eth0
   roles:
     - ansible-role-lldpad
