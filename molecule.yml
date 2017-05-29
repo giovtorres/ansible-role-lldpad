@@ -3,8 +3,12 @@ driver:
   name: docker
 docker:
   containers:
-    - name: ansible-role-lldpad
+    - name: lldpad-centos7
       image: giovtorres/docker-centos7-systemd
+      image_version: latest
+      privileged: True
+    - name: lldpad-centos6
+      image: giovtorres/docker-centos6
       image_version: latest
       privileged: True
 verifier:
