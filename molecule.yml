@@ -1,30 +1,11 @@
 ---
 driver:
-  name: vagrant
-vagrant:
-  platforms:
-    - name: centos7
-      box: centos/7
-    - name: centos6
-      box: centos/6
-    - name: debian8
-      box: debian/jessie64
-  providers:
-    - name: libvirt
-      type: libvirt
-      options:
-        memory: 1024
-        cpus: 1
-      driver: kvm
-    - name: virtualbox
-      type: virtualbox
-      options:
-        memory: 1024
-        cpus: 1
-      driver: vagrant
-  instances:
+  name: docker
+docker:
+  containers:
     - name: ansible-role-lldpad
-      ansible_groups:
-        - group1
+      image: giovtorres/docker-centos7-systemd
+      image_version: latest
+      privileged: True
 verifier:
   name: testinfra
