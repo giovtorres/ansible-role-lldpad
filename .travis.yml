@@ -9,7 +9,7 @@ before_install:
 install:
   - pip install molecule
   - pip install docker
-  - pip install testinfra>=1.6.0
+  - pip install -U testinfra
 script:
   - molecule test
 notifications:
