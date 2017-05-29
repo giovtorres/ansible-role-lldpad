@@ -1,4 +1,11 @@
 ---
 - hosts: all
+  tasks:
+    - name: Install iproute
+      yum:
+        name: iproute
+      when: ansible_os_family == "RedHat"
+
+- hosts: all
   roles:
     - ansible-role-lldpad
