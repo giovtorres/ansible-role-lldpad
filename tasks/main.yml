@@ -25,19 +25,11 @@
   with_items:
     - "{{ ansible_interfaces | map('replace', '-', '_') | list }}"
 
-- debug:
-    var: active_interfaces
-    verbosity: 1
-
 - name: Get LLDP adminstatus for all active interfaces
   command: "/usr/sbin/lldptool get-lldp -i {{ item }} adminStatus"
   changed_when: False
   with_items: "{{ active_interfaces }}"
   register: lldp_adminStatus
-
-- debug:
-    var: lldp_adminStatus
-    verbosity: 1
 
 - name: Enable LLDP adminstatus for all active interfaces
   command: "/usr/sbin/lldptool set-lldp -i {{ item.item }} adminStatus=rxtx"
@@ -52,10 +44,6 @@
   with_items: "{{ active_interfaces }}"
   register: lldp_sysName
 
-- debug:
-    var: lldp_sysName
-    verbosity: 1
-
 - name: Enable LLDP sysName tlv for all active interfaces
   command: "/usr/sbin/lldptool set-tlv -i {{ item.item }} -V sysName enableTx=yes"
   with_items: "{{ lldp_sysName.results }}"
@@ -68,10 +56,6 @@
   changed_when: False
   with_items: "{{ active_interfaces }}"
   register: lldp_portDesc
-
-- debug:
-    var: lldp_portDesc
-    verbosity: 1
 
 - name: Enable LLDP portDesc tlv for all active interfaces
   command: "/usr/sbin/lldptool set-tlv -i {{ item.item }} -V portDesc enableTx=yes"
