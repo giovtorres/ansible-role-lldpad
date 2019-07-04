@@ -10,14 +10,19 @@ platforms:
     image: centos/systemd:latest
     privileged: true
     command: /usr/sbin/init
+    dockerfile: ../resources/Dockerfile.j2
   - name: lldpad-centos6
     image: centos:6
     privileged: true
+    dockerfile: ../resources/Dockerfile.j2
 provisioner:
   name: ansible
+  playbooks:
+    prepare: ../resources/playbooks/prepare.yml
   lint:
     name: ansible-lint
 verifier:
   name: testinfra
+  directory: ../resources/tests/
   lint:
     name: flake8
