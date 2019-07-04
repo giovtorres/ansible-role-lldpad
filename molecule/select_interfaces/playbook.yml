@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    lldpad_active_interfaces: false
+    lldpad_selected_interfaces:
+      - eth0
+  roles:
+    - role: ansible-role-lldpad

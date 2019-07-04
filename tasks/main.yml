@@ -21,8 +21,8 @@
     - "'bond' not in item"
     - "'team' not in item"
     - hostvars[inventory_hostname]['ansible_' + item]['type'] == 'ether'
-    - hostvars[inventory_hostname]['ansible_' + item]['active']
-    - lldpad_active_interfaces
+    - hostvars[inventory_hostname]['ansible_' + item]['active']|bool
+    - lldpad_active_interfaces|bool
   with_items:
     - "{{ ansible_interfaces | map('replace', '-', '_') | list }}"
 
@@ -30,8 +30,8 @@
   set_fact:
     active_interfaces: "{{ lldpad_selected_interfaces }}"
   when:
-    - not lldpad_active_interfaces
-    - lldpad_selected_interfaces
+    - not lldpad_active_interfaces|bool
+    - lldpad_selected_interfaces|length > 0
 
 - name: Get LLDP adminstatus for all active interfaces
   command: "/usr/sbin/lldptool get-lldp -i {{ item }} adminStatus"

@@ -1,8 +1,10 @@
-import testinfra.utils.ansible_runner
+import os
+
 import pytest
+import testinfra.utils.ansible_runner
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
-    '.molecule/ansible_inventory').get_hosts('all')
+    os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
 
 def test_lldpad_service(host):

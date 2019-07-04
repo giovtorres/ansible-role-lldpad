@@ -12,7 +12,7 @@ Requirements
 ------------
 
 Useful on physical hosts for determining uplink switch/switchport connections.
-Also, the `iproute` package must be installed on the host.
+Additionally, the `iproute` package must be installed on the host.
 
 Role Variables
 --------------
