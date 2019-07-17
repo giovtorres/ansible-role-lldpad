@@ -12,7 +12,6 @@ Requirements
 ------------
 
 Useful on physical hosts for determining uplink switch/switchport connections.
-Additionally, the `iproute` package must be installed on the host.
 
 Role Variables
 --------------
@@ -46,3 +45,4 @@ License
 -------
 
 BSD
+
